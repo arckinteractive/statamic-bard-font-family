@@ -1,5 +1,6 @@
 {
     "name": "arckinteractive/statamic-bard-font-family",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Arckinteractive\\StatamicBardFontFamily\\": "src"
