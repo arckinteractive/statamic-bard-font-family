@@ -1,0 +1,24 @@
+{
+    "name": "arckinteractive/statamic-bard-font-family",
+    "autoload": {
+        "psr-4": {
+            "Arckinteractive\\StatamicBardFontFamily\\": "src"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php artisan vendor:publish --tag=arckinteractive-bard-font-family"
+        ]
+    },
+    "extra": {
+        "statamic": {
+            "name": "Statamic Bard Font Family",
+            "description": "Statamic Bard Font Family addon"
+        },
+        "laravel": {
+            "providers": [
+                "Arckinteractive\\StatamicBardFontFamily\\ServiceProvider"
+            ]
+        }
+    }
+}
