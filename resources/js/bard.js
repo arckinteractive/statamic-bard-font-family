@@ -5,9 +5,8 @@ Statamic.$bard.addExtension(() => ArckFontFamily);
 
 Statamic.$bard.buttons(() => {
     return {
-        name: 'arckFontFamily',
+        name: 'arckfontFamily',
         text: 'Font Family',
-        args: { key: '' },
         icon: 'arck-font-family',
         component: ArckFontFamilyMenu,
         command: (editor) => editor.command.setFontFamily(),
