@@ -2,22 +2,33 @@
 
 namespace Arckinteractive\StatamicBardFontFamily;
 
-use ProseMirrorToHtml\Marks\Mark;
+
+use Tiptap\Core\Mark;
+use Tiptap\Utils\HTML;
 
 class ArckFontFamily extends Mark
 {
-    protected $markType = 'ArckFontFamily';
-    protected $tagName = 'span';
+    public static $name = 'ArckFontFamily';
 
-    public function matching(): bool
+    public function renderHTML($mark, $HTMLAttributes = [])
     {
-        return $this->mark->type === $this->markType;
+        return [
+            'span',
+            HTML::mergeAttributes(
+                [
+                    'class' => 'arck-font-family',
+                    'style' => $this->getFontStyle($mark->attrs->key),
+                ]
+            ),
+            0
+        ];
     }
 
-    public function tag(): ?array
+    private function getFontStyle($font): string
     {
         $style = 'font-family: ';
-        switch ($this->mark->attrs->key) {
+
+        switch ($font) {
             case 'alh-arial':
                 $style .= 'Arial, Helvetica, sans-serif;';
             break;
@@ -55,18 +66,11 @@ class ArckFontFamily extends Mark
             break;
 
             case 'alh-verdana':
+            default:
                 $style .= 'Verdana, Geneva, Tahoma, sans-serif;';
             break;
         }
 
-        return [
-            [
-                'tag'   => 'span',
-                'attrs' => [
-                    'class' => 'arck-font-family',
-                    'style' => $style
-                ],
-            ],
-        ];
+        return $style;
     }
 }

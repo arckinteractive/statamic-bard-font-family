@@ -1,16 +1,15 @@
 import ArckFontFamily from './ArckFontFamily';
 import ArckFontFamilyMenu from './ArckFontFamilyMenu.vue';
 
-Statamic.$bard.extend(({mark}) => mark(new ArckFontFamily()));
+Statamic.$bard.addExtension(() => ArckFontFamily);
+
 Statamic.$bard.buttons(() => {
     return {
-        name: 'arckfontfamily',
+        name: 'arckFontFamily',
         text: 'Font Family',
-        command: 'classType',
-        args: {
-            key: ""
-        },
+        args: { key: '' },
         icon: 'arck-font-family',
-        component: ArckFontFamilyMenu
+        component: ArckFontFamilyMenu,
+        command: (editor) => editor.command.setFontFamily(),
     };
 });
