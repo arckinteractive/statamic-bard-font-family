@@ -1,1 +1,57 @@
-.fa-arck-font-family{padding-bottom:4px!important}.fa-arck-font-family::before{content:"";display:block;width:16px;height:16px;margin-top:3px;background-image:url('/vendor/arckinteractive-bard-font-family/icons/font.svg');background-size:contain;background-repeat:no-repeat;background-position:center center}.arck-font-family.alh-arial{font-family:Arial,Helvetica,sans-serif}.arck-font-family.alh-brush-script-mt{font-family:'Brush Script MT',cursive}.arck-font-family.alh-courier-new{font-family:'Courier New',Courier,monospace}.arck-font-family.alh-garamond{font-family:Garamond,serif}.arck-font-family.alh-georgia{font-family:Georgia,'Times New Roman',Times,serif}.arck-font-family.alh-helvetica{font-family:Helvetica,Arial,sans-serif}.arck-font-family.alh-tahoma{font-family:Tahoma,Geneva,Verdana,sans-serif}.arck-font-family.alh-times-new-roman{font-family:'Times New Roman',Times,serif}.arck-font-family.alh-trebuchet{font-family:'Trebuchet MS','Lucida Sans Unicode','Lucida Grande','Lucida Sans',Arial,sans-serif}.arck-font-family.alh-verdana{font-family:Verdana,Geneva,Tahoma,sans-serif}
+/* Class Type Styles */
+
+.fa-arck-font-family {
+    padding-bottom: 4px !important;
+}
+
+.fa-arck-font-family::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+    background-image: url('/vendor/arckinteractive-bard-font-family/icons/font.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.arck-font-family.alh-arial {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.arck-font-family.alh-brush-script-mt {
+    font-family: 'Brush Script MT', cursive;
+}
+
+.arck-font-family.alh-courier-new {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.arck-font-family.alh-garamond {
+    font-family: Garamond, serif;
+}
+
+.arck-font-family.alh-georgia {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.arck-font-family.alh-helvetica {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.arck-font-family.alh-tahoma {
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.arck-font-family.alh-times-new-roman {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.arck-font-family.alh-trebuchet {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.arck-font-family.alh-verdana {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
