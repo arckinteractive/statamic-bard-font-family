@@ -74,7 +74,7 @@ export default {
         },
         setClassType(classTypeKey) {
             // update the editor
-            this.editor.commands.setFontFamily({
+            this.editor.commands.toggleArckFontFamily({
                 key: classTypeKey == this.currentKey ? false : classTypeKey
             })
             // hide the menu

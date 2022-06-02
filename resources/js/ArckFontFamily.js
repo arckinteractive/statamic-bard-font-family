@@ -1,57 +1,31 @@
 const { Mark } = Statamic.$bard.tiptap.core;
 
-const ArckFontFamily = Mark.create({
-    name: 'arckFontFamily',
+export const ArckFontFamily = Mark.create({
+
+    name: 'ArckFontFamily',
 
     addAttributes() {
         return {
             key: {
                 default: '',
-                parseHtml: element => {element.querySelector('span.arck-font-family').getAttribute('data-class')}
-            }
+                parseHTML: element => {element.querySelector('span.arck-font-family')?.getAttribute('data-class')},
+            },
+
         }
     },
 
-    parseHtml() {
+    parseHTML() {
         return [
             {
                 tag: 'span.arck-font-family'
-            }
-        ]
-    },
-
-    renderHtml({ HTMLAttributes }) {
-        return [
-            'span',
-            {
-                ...HTMLAttributes,
-                class: 'arck-font-family',
-                'data-class': HTMLAttributes.key,
-                'style': this.getStyle(HTMLAttributes.key)
-            }
-        ]
-    },  
-
-    addCommands() {
-        return {
-            setFontFamily: attributes => ({ chain }) => {
-                if (attributes.key) {
-                    return chain()
-                        .setMark(this.name, attributes)
-                        .run()
-                }
-
-                return chain()
-                    .unsetMark(this.name, { extendEmptyMarkRange: true })
-                    .run()
             },
-        }
+        ]
     },
 
-    getStyle(font) {
-        const style = 'font-family: '
+    renderHTML({ HTMLAttributes }) {
+        let style = 'font-family: ';
 
-        switch (font) {
+        switch (HTMLAttributes.key) {
             case 'alh-arial':
                 style += 'Arial, Helvetica, sans-serif;'
             break;
@@ -94,8 +68,32 @@ const ArckFontFamily = Mark.create({
             break;
         }
 
-        return style
-    }
-})
 
-export default ArckFontFamily
+        return [
+            'span',
+            {
+                ...HTMLAttributes,
+                class: 'arck-font-family',
+                'data-class': HTMLAttributes.key,
+                'style': style
+            },
+            0
+        ];
+    },
+
+    addCommands() {
+        return {
+            toggleArckFontFamily: attributes => ({ chain }) => {
+                if (attributes.key) {
+                    return chain()
+                        .setMark(this.name, attributes)
+                        .run()
+                }
+
+                return chain()
+                    .unsetMark(this.name, { extendEmptyMarkRange: true })
+                    .run()
+            },
+        }
+    },
+});
