@@ -2,8 +2,10 @@
 
 namespace Arckinteractive\StatamicBardFontFamily;
 
+use Illuminate\Support\Facades\Artisan;
 use Statamic\Fieldtypes\Bard\Augmentor;
 use Statamic\Providers\AddonServiceProvider;
+use Statamic\Statamic;
 
 class ServiceProvider extends AddonServiceProvider
 {
@@ -15,17 +17,20 @@ class ServiceProvider extends AddonServiceProvider
         __DIR__.'/../dist/css/arckinteractive-bard-font-family.css'
     ];
 
-    protected $publishables = [
-
-    ];
+    protected $publishables = [];
 
     public function boot()
     {
         parent::boot();
-        Augmentor::addMark(ArckFontFamily::class);
+
+        Augmentor::addExtension('ArckFontWeight', new ArckFontFamily());
 
         $this->publishes([
             __DIR__ . '/../public' => public_path('vendor/arckinteractive-bard-font-family'),
         ], 'arckinteractive-bard-font-family');
+
+        Statamic::afterInstalled(function() {
+            Artisan::call('vendor:publish --tag=arckinteractive-bard-font-family');
+        });
     }
 }
