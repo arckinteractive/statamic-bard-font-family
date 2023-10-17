@@ -22,7 +22,7 @@ class ServiceProvider extends AddonServiceProvider
     public function boot()
     {
         parent::boot();
-        Augmentor::addMark(ArckFontFamily::class);
+        Augmentor::addExtension('ArckFontFamily', new ArckFontFamily);
 
         $this->publishes([
             __DIR__ . '/../public' => public_path('vendor/arckinteractive-bard-font-family'),

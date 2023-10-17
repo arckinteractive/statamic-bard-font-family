@@ -59,7 +59,7 @@ export default {
             };
         },
         currentKey() {
-            return this.editor.getMarkAttrs('ArckFontFamily').key;
+           return this.editor.getAttributes('ArckFontFamily').key;
         }
     },
     data() {
